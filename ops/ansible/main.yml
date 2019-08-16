@@ -6,5 +6,6 @@
     awx_password: "{{ lookup('env', 'TOWER_PASSWORD') }}"
     awx_verify_ssl: "{{ lookup('env', 'TOWER_VERIFY_SSL') }}"
   tasks:
+  - include_vars: vars/main.yml
   - debug:
       msg: "This playbook is a stub."

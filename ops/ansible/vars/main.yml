@@ -1,0 +1,9 @@
+---
+# Specifies a list of inventories to add to the Ansible Tower
+# instance.
+awx_inventories: []
+
+
+# A list of project that are maintained with the Ansible
+# Tower instance.
+awx_projects: []
