@@ -14,5 +14,4 @@
     include_role:
       name: unimatrix-awx
     vars:
-      awx_projects:
-      - "{{ lookup('file', item.src)|from_yaml }}"
+      awx_projects: "{{ lookup('file', item.src)|from_yaml_all|list }}"
