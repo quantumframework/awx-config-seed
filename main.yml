@@ -7,7 +7,6 @@
     # module to be of the wrong version and fail import of re).
     PYTHONPATH: ""
   vars:
-    ansible_python_interpreter: python3
     awx_url: "{{ lookup('env', 'TOWER_HOST') }}"
     awx_username: "{{ lookup('env', 'TOWER_USERNAME') }}"
     awx_password: "{{ lookup('env', 'TOWER_PASSWORD') }}"
