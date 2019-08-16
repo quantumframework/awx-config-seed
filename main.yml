@@ -9,6 +9,8 @@
   tasks:
   - name: include Ansible Tower project definitions
     with_filetree: vars/projects
+    when: >-
+      item.state == 'file' and item.path != '.gitkeep'
     include_role:
       name: unimatrix-awx
     vars:
