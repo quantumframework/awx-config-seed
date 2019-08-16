@@ -1,0 +1,4 @@
+---
+- src: https://github.com/quantumframework/ansible-unimatrix-awx.git
+  version: master
+  name: unimatrix-awx
