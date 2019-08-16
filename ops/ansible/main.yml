@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  gather_facts: false
   vars:
     awx_url: "{{ lookup('env', 'TOWER_HOST') }}"
     awx_username: "{{ lookup('env', 'TOWER_USERNAME') }}"
