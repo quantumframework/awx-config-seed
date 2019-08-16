@@ -7,17 +7,12 @@
     # module to be of the wrong version and fail import of re).
     PYTHONPATH: ""
   vars:
-    ansible_python_interpreter: "python3"
+    ansible_python_interpreter: python3
     awx_url: "{{ lookup('env', 'TOWER_HOST') }}"
     awx_username: "{{ lookup('env', 'TOWER_USERNAME') }}"
     awx_password: "{{ lookup('env', 'TOWER_PASSWORD') }}"
     awx_verify_ssl: "{{ lookup('env', 'TOWER_VERIFY_SSL') == '1' }}"
   tasks:
-  - name: install Python modules
-    pip:
-      name:
-      - openshift
-      - quantum-queen
   - name: include Ansible Tower project definitions
     with_filetree: vars/projects
     when: >-
