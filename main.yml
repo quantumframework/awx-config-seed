@@ -5,8 +5,12 @@
     awx_url: "{{ lookup('env', 'TOWER_HOST') }}"
     awx_username: "{{ lookup('env', 'TOWER_USERNAME') }}"
     awx_password: "{{ lookup('env', 'TOWER_PASSWORD') }}"
-    awx_verify_ssl: "{{ lookup('env', 'TOWER_VERIFY_SSL') }}"
+    awx_verify_ssl: "{{ lookup('env', 'TOWER_VERIFY_SSL') == '1' }}"
   tasks:
-  - include_vars: vars/main.yml
-  - debug:
-      msg: "This playbook is a stub."
+  - name: include Ansible Tower project definitions
+    with_filetree: vars/projects
+    include_role:
+      name: unimatrix-awx
+    vars:
+      awx_projects:
+      - "{{ lookup('file', item.src)|from_yaml }}"
